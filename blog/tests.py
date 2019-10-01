@@ -14,9 +14,9 @@ class BlogTests(TestCase) :
             password='secret'
         )
         self.post = Post.objects.create(
-        title='A good title',
-        body='Nice body content',
-        author=self.user,
+            title='A good title',
+            body='Nice body content',
+            author=self.user,
     )
 
     def test_string_representation(self) :
@@ -60,6 +60,6 @@ class BlogTests(TestCase) :
         self.assertEqual(response.status_code, 302)
 
     def test_post_delete_view(self) :
-      response = self.client.get(
-         reverse('post_delete', args='1'))
-     self.assertEqual(response.status_code, 200)
+        response = self.client.get(
+            reverse('post_delete', args='1'))
+        self.assertEqual(response.status_code, 200)
